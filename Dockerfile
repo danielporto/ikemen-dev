@@ -17,6 +17,7 @@ RUN apt update && apt -y install \
                                 libasound2-dev\
                                 golang-1.12-go \
                                 # cross compile for windows
+                                tofrodos \
                                 gcc-mingw-w64-i686 \
                                 gcc-mingw-w64-x86-64 \
                                 # cross compile for mac
@@ -53,9 +54,6 @@ RUN cd /tmp \
          && mv /tmp/openal-soft-1.19.1-bin/bin/Win64/soft_oal.dll /lib/gcc/x86_64-w64-mingw32/8.3-win32/soft_oal.dll \
          && rm -rf openal-soft-1.19.1-bin.zip openal-soft-1.19.1-bin
 
-
-# adding the code
-ADD . /root
 
 # golang envs
 ENV PATH=$PATH:/usr/lib/go-1.12/bin
